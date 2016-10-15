@@ -4,7 +4,7 @@ withEnv(["PIPE_FLOW_NUMBER=${currentBuild.number}"]) {
     git poll: true, url: "https://github.com/robertBrem/hero-command.git"
     def mvnHome = tool 'M3'
     sh "${mvnHome}/bin/mvn clean install"
-    sh "VERSION=1.0.${currentBuild.number} ./build.js"
+    sh "USER_NAME=robertbrem VERSION=1.0.${currentBuild.number} ./build.js"
     step([$class: 'JUnitResultArchiver', testResults: '**/target/surefire-reports/TEST-*.xml'])
   }
 
