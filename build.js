@@ -1,6 +1,6 @@
 #!/usr/bin/jjs -fv
 
-var imageName = $ENV.USER_NAME + "/heros-command:" + $ENV.VERSION;
+var imageName = "docker.io/" + $ENV.USER_NAME + "/heros-command:" + $ENV.VERSION;
 var build = "docker build -t " + imageName + " .";
 $EXEC(build);
 print($OUT);
