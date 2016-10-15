@@ -18,8 +18,8 @@ withEnv(["PIPE_FLOW_NUMBER=${currentBuild.number}"]) {
     step([$class: 'JUnitResultArchiver', testResults: '**/target/failsafe-reports/TEST-*.xml'])
   }
 
-   stage ("Manuel tests on http://adesso.disruptor.ninja:31080")
-    input 'Exploratives Testing?'
+   stage ("Manuel tests on http://adesso.disruptor.ninja:31080/hero-command/resources/heros")
+    input 'Everything ok?'
     node {
         git poll: true, url: "https://github.com/robertBrem/hero-command-st.git"
         sh "./stop.js"
