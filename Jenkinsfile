@@ -16,15 +16,12 @@ withEnv(["PIPE_FLOW_NUMBER=${currentBuild.number}"]) {
     sh "VERSION=1.0.${currentBuild.number} ./run.js"
     sh "${mvnHome}/bin/mvn clean install failsafe:integration-test"
     step([$class: 'JUnitResultArchiver', testResults: '**/target/failsafe-reports/TEST-*.xml'])
-    sh "./stop.js"
   }
 
    stage ("Manuel tests on http://adesso.disruptor.ninja:31080")
     input 'Exploratives Testing?'
     node {
         git poll: true, url: "https://github.com/robertBrem/hero-command-st.git"
-        sh "./stop.js"
-        sh "VERSION=1.0.${currentBuild.number} ./run.js"
         sh "./stop.js"
     }
 }
