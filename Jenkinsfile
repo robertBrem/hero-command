@@ -24,4 +24,12 @@ withEnv(["PIPE_FLOW_NUMBER=${currentBuild.number}"]) {
         git poll: true, url: "https://github.com/robertBrem/hero-command-st.git"
         sh "./stop.js"
     }
+
+  stage "lasttest"
+  node {
+    git poll: true, url: "https://github.com/robertBrem/hero-command-lt.git"
+    def mvnHome = tool 'M3'
+    sh "${mvnHome}/bin/mvn clean verify"
+  }
+
 }
