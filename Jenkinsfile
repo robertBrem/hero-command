@@ -13,7 +13,6 @@ withEnv(["PIPE_FLOW_NUMBER=${currentBuild.number}"]) {
     git poll: true, url: "https://github.com/robertBrem/hero-command-st.git"
     def mvnHome = tool 'M3'
     sh "./stop.js"
-    sh "export KUBERNETES_HOST_NAME=hero-command-test"
     sh "VERSION=1.0.${currentBuild.number} ./run.js"
     sh "${mvnHome}/bin/mvn clean install failsafe:integration-test"
     step([$class: 'JUnitResultArchiver', testResults: '**/target/failsafe-reports/TEST-*.xml'])
