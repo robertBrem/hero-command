@@ -1,4 +1,4 @@
-withEnv(["PIPE_FLOW_NUMBER=${currentBuild.number}"]) {
+withEnv(["KUBERNETES_HOST_NAME=hero-command-test"]) {
   stage "checkout, build, test and publish"
   node {
     git poll: true, url: "https://github.com/robertBrem/hero-command.git"
