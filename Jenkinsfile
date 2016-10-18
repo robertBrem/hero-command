@@ -21,8 +21,6 @@ withEnv(["PIPE_FLOW_NUMBER=${currentBuild.number}"]) {
    stage ("Manuel tests on http://adesso.disruptor.ninja:31080/hero-command/resources/heros")
     input 'Everything ok?'
     node {
-        git poll: true, url: "https://github.com/robertBrem/hero-command-st.git"
-        sh "./stop.js"
     }
 
   stage "lasttest"
