@@ -27,7 +27,7 @@ withEnv(["KUBERNETES_HOST_NAME=hero-command-test"]) {
   node {
     git poll: true, url: "https://github.com/robertBrem/hero-command-lt.git"
     def mvnHome = tool 'M3'
-    sh "${mvnHome}/bin/mvn clean verify -Dperformancetest.webservice.host=http://adesso.disruptor.ninja -Dperformancetest.webservice.port=31080"
+    sh "${mvnHome}/bin/mvn clean verify -Dperformancetest.webservice.host=adesso.disruptor.ninja -Dperformancetest.webservice.port=31080"
   }
 
 }
