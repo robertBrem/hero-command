@@ -1,7 +1,6 @@
 withEnv(["KUBERNETES_HOST_NAME=hero-command-test"]) {
   stage "checkout, build, test and publish"
   node {
-    git poll: true, url: "https://github.com/robertBrem/hero-command.git"
     def mvnHome = tool 'M3'
     sh "${mvnHome}/bin/mvn clean install"
     sh "USER_NAME=robertbrem VERSION=1.0.${currentBuild.number} ./build.js"
