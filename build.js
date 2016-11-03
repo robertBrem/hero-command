@@ -6,7 +6,7 @@ var build = "docker build -t " + imageName + " .";
 $EXEC(build);
 print($OUT);
 print($ERR);
-var dockerLogin = "docker login --username=" + $ENV.USER_NAME + " --password=" + $ENV.PASSWORD;
+var dockerLogin = "docker login --username=rob --password=1234";
 $EXEC(dockerLogin);
 print($OUT);
 print($ERR);
