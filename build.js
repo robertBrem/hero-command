@@ -6,7 +6,7 @@ var build = "docker build -t " + imageName + " .";
 $EXEC(build);
 print($OUT);
 print($ERR);
-var dockerLogin = "docker login registry.disruptor.ninja:5000 --username=rob --password=1234";
+var dockerLogin = "docker login --username=rob --password=1234 registry.disruptor.ninja:5000";
 $EXEC(dockerLogin);
 print($OUT);
 print($ERR);
