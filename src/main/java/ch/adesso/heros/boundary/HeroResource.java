@@ -8,7 +8,7 @@ public class HeroResource {
 
     @GET
     public String getHeros() {
-        return "Black Panther, Spiderman, Ironman";
+        return "Black Panther, Spiderman, Ironman, Aquaman";
     }
 
 }
